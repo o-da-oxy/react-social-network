@@ -1,10 +1,9 @@
 import React from 'react';
-import "./Sidebar.module.css";
-import classes from "./Sidebar.module.css";
+import classes from "./Navbar.module.css";
 
-const Sidebar = () => {
+const Navbar = () => {
     return <nav className={classes.nav}>
-        <div className={classes.item}>
+        <div className={`${classes.item} ${classes.active}`}>
             <a>Profile</a>
         </div>
         <div className={classes.item}>
@@ -22,4 +21,4 @@ const Sidebar = () => {
     </nav>
 }
 
-export default Sidebar;
+export default Navbar;

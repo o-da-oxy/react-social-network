@@ -2,8 +2,14 @@
     grid-area: content;
     background-color: #ffa7de;
 }
-.contentImg img {
+.mainPicture img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+}
+.info {
+
+}
+.myPosts {
+
 }
