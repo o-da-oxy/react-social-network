@@ -1,7 +1,3 @@
-.content{
-    grid-area: content;
-    background-color: #ffa7de;
-}
 .mainPicture img {
     width: 100%;
     height: 200px;

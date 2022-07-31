@@ -4,7 +4,7 @@ import classes from "./Post.module.css";
 const Post = (props) => {
     return (
         <div className={classes.posts}>
-            <img src="https://s2.best-wallpaper.net/wallpaper/iphone/1805/Blue-petals-flower-black-background_iphone_1080x1920.jpg"/>
+            <img src="https://ih1.redbubble.net/image.1619800675.8172/pp,840x830-pad,1000x1000,f8f8f8.jpg"/>
             {props.message}
         </div>
     )

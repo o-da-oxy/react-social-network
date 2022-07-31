@@ -1,4 +1,4 @@
-.app-wrapper{
+.app-wrapper {
     display: grid;
     grid-template-areas:
             'header header'
@@ -7,4 +7,8 @@
     grid-template-rows: 50px auto;
     gap: 10px 10px;
     margin: 10px 150px 10px 150px;
+}
+.app-wrapper-content {
+    grid-area: content;
+    background-color: #ffa7de;
 }

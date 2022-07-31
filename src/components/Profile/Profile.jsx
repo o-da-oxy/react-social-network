@@ -6,8 +6,7 @@ const Profile = () => {
     return (
         <div className={classes.content}>
             <div className={classes.mainPicture}>
-                <img
-                    src="https://img2.akspic.ru/crops/4/6/0/7/47064/47064-tsvetok-tyulpany-zavod-krasnyj_cvet-rastenie-1920x1080.jpg"/>
+                <img src="https://wallpaperaccess.com/full/148746.jpg"/>
             </div>
             <div className={classes.info}>
                 ava+name+description
@@ -21,9 +20,9 @@ const Profile = () => {
                 <button>Add post</button>
             </div>
             <div className={classes.myPosts}>
-                <Post message='Hi! I feel great!'/>
-                <Post message='I like flowers, and what about you?'/>
-                <Post message="I'm in Netherlands!"/>
+                <Post message='Hi! I feel sweet!'/>
+                <Post message='I like cups, and what about you?'/>
+                <Post message="I'm in coffee!"/>
             </div>
         </div>
     )
