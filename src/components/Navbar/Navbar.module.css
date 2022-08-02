@@ -2,9 +2,13 @@
     grid-area: nav;
     background-color: #d779d7;
 }
-.item {
+.item a {
     font-weight: bold;
+    text-decoration: none;
 }
-.item.active {
-    color: blue;
+.item:active{
+    color: black;
+}
+.current {
+    color: white;
 }
