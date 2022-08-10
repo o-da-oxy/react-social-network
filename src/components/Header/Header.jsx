@@ -3,7 +3,7 @@ import classes from "./Header.module.css";
 
 const Header = () => {
     return <header className={classes.header}>
-        Sweet App
+        <h2>Sweet App</h2>
     </header>
 }
 

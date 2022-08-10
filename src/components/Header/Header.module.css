@@ -1,4 +1,6 @@
 .header{
     grid-area: header;
     background-color: #bd7fff;
+    display: flex;
+    align-items: center;
 }

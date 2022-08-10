@@ -1,0 +1,24 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 3fr 10fr;
+}
+.messages {
+
+}
+.message {
+
+}
+.dialogsItems {
+
+}
+.item a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #500090;
+}
+.item:active{
+    color: black;
+}
+.item .current {
+    color: white;
+}
