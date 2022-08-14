@@ -23,9 +23,9 @@ function App() {
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/settings" element={<Settings/>}/>
 
-                        <Route path="/dialogs/veronika" element={<Messages/>}/>
-                        <Route path="/dialogs/oksana" element={<Messages/>}/>
-                        <Route path="/dialogs/liza" element={<Messages/>}/>
+                        <Route path="/dialogs/1" element={<Messages/>}/>
+                        <Route path="/dialogs/2" element={<Messages/>}/>
+                        <Route path="/dialogs/3" element={<Messages/>}/>
                     </Routes>
                 </div>
             </div>
