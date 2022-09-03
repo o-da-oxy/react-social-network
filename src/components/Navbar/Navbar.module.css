@@ -1,6 +1,6 @@
 .nav {
     grid-area: nav;
-    background-color: rgba(215, 121, 215, 0.68);
+    background-color: rgba(206, 116, 206, 0.68);
     padding: 20px;
 }
 .item a {
@@ -9,8 +9,8 @@
     color: #500090;
 }
 .item:active{
-    color: black;
+    color: white;
 }
 .item .current {
-    color: white;
+    color: black;
 }

@@ -2,15 +2,18 @@ import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import React from "react";
 
-let posts = [
-    {id: 1, message: "Hi! I feel sweet!"},
-    {id: 2, message: "I like cups, and what about you?"},
-    {id: 3, message: "I'm in coffee!"},
-];
+const MyPosts = (props) => {
+    let postsElements = props.posts.map((p) => <Post key={p.id} message={p.message}/>);
 
-let postsElements = posts.map((p) => <Post message={p.message}/>);
+    let newPostText = React.useRef();
 
-const MyPosts = () => {
+    let addPost = () => {
+        debugger;
+        let text = newPostText.current.value;
+        props.addPost(text);
+        newPostText.current.value = '';
+    }
+
     return (
         <div className={classes.content}>
             <div className={classes.myPostsHeader}>
@@ -20,8 +23,8 @@ const MyPosts = () => {
                 <form>
                     <h4>New post</h4>
                 </form>
-                <textarea></textarea>
-                <button>Add post</button>
+                <textarea ref={newPostText}></textarea>
+                <button onClick={addPost} >Add post</button>
             </div>
             <div className={classes.myPosts}>
                 { postsElements }

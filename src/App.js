@@ -8,7 +8,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
-function App() {
+function App(props) {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -16,16 +16,24 @@ function App() {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Routes>
-                        <Route path="/" element={<Profile/>}/>
-                        <Route path="/profile" element={<Profile/>}/>
-                        <Route path="/dialogs" element={<Messages/>}/>
+                        <Route path="/" element={<Profile
+                            posts={props.posts}
+                            addPost={props.addPost}/>}/>
+                        <Route path="/profile" element={<Profile
+                            posts={props.posts}
+                            addPost={props.addPost}/>}/>
+                        <Route path="/dialogs"
+                               element={<Messages
+                                   dialogsItems={props.dialogsItems}
+                                   messagesItems={props.messagesItems}/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/settings" element={<Settings/>}/>
 
-                        <Route path="/dialogs/1" element={<Messages/>}/>
-                        <Route path="/dialogs/2" element={<Messages/>}/>
-                        <Route path="/dialogs/3" element={<Messages/>}/>
+                        <Route path="/dialogs"
+                               element={<Messages
+                                   dialogsItems={props.dialogsItems}
+                                   messagesItems={props.messagesItems}/>}/>
                     </Routes>
                 </div>
             </div>
