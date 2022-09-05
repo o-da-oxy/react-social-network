@@ -3,14 +3,14 @@ import Post from "./Post/Post";
 import React from "react";
 
 const MyPosts = (props) => {
+    debugger
     let postsElements = props.posts.map((p) => <Post key={p.id} message={p.message}/>);
 
     let newPostText = React.useRef();
 
     let addPost = () => {
-        debugger;
         let text = newPostText.current.value;
-        props.addPost(text);
+        props.dispatch({type: 'ADD-POST', text: text});
         newPostText.current.value = '';
     }
 

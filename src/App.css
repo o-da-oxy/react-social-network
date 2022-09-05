@@ -6,7 +6,7 @@
     grid-template-columns: 200px auto;
     grid-template-rows: 50px auto;
     gap: 10px 10px;
-    margin: 10px 10% 10px 10%;
+    margin: 10px 150px 10px 150px;
 }
 .app-wrapper-content {
     grid-area: content;
