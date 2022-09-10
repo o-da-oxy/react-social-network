@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD_POST';
+const UPDATE_POST_FIELD = 'UPDATE_POST_FIELD';
+const SEND_MESSAGE = 'SEND_MESSAGE';
+const UPDATE_MESSAGE_FIELD = 'UPDATE_MESSAGE_FIELD';
+
 let store = {
     _state: {
         posts: [
@@ -5,6 +10,7 @@ let store = {
             {id: 2, message: "I like cups, and what about you?"},
             {id: 3, message: "I'm in coffee!"},
         ],
+        newPostText: '',
         dialogsItems: [
             {id: "1", name: "Veronika"},
             {id: "2", name: "Oksana"},
@@ -35,11 +41,56 @@ let store = {
         this._callSubscriber();
     },
 
+    updatePostField(newText) {
+        this._state.newPostText = newText;
+        this._callSubscriber();
+    },
+
+    sendMassage() {
+
+        this._callSubscriber();
+    },
+
+    updateMessageField() {
+
+        this._callSubscriber();
+    },
+
+
+
     //dispatch - to dispatch an action - отправлять действие - инкапсуляция многих методов
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             this.addPost(action.text);
         }
+        if (action.type === UPDATE_POST_FIELD) {
+            this.updatePostField(action.text);
+        }
+        if (action.type === SEND_MESSAGE) {
+
+        }
+        if (action.type === UPDATE_MESSAGE_FIELD) {
+
+        }
+    }
+}
+
+export const addPostAction = (text) => {
+    return {
+        type: ADD_POST,
+        text: text
+    }
+}
+
+export const updatePostFieldAction = (newText) => {
+    return {
+        type: UPDATE_POST_FIELD,
+        text: newText
+    }
+}
+export const updateMessageFieldAction = () => {
+    return {
+        type: UPDATE_MESSAGE_FIELD
     }
 }
 
