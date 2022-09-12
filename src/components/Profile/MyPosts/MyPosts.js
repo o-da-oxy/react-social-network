@@ -4,7 +4,6 @@ import React from "react";
 import {addPostAction, updatePostFieldAction} from "../../../redux/state";
 
 const MyPosts = (props) => {
-    debugger
     let postsElements = props.posts.map((p) => <Post key={p.id} message={p.message}/>);
 
     let newPostText = React.useRef();

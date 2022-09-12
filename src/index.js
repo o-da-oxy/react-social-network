@@ -8,15 +8,16 @@ import {BrowserRouter} from "react-router-dom";
 
 export const root = ReactDOM.createRoot(document.getElementById('root'));
 export const renderPage = (root) => {
-    debugger
     root.render(
         <BrowserRouter>
             <App
-                posts={store.getState().posts}
-                newPostText={store.getState().newPostText}
                 dispatch={store.dispatch.bind(store)} //bind - привязка к контексту this
-                dialogsItems={store.getState().dialogsItems}
-                messagesItems={store.getState().messagesItems}/>
+                posts={store.getState().profile.posts}
+                newPostText={store.getState().profile.newPostText}
+                dialogsItems={store.getState().messages.dialogsItems}
+                messagesItems={store.getState().messages.messagesItems}
+                newMessageText={store.getState().messages.newMessage}
+            />
         </BrowserRouter>
     );
 }

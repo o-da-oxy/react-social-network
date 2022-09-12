@@ -5,23 +5,28 @@ const UPDATE_MESSAGE_FIELD = 'UPDATE_MESSAGE_FIELD';
 
 let store = {
     _state: {
-        posts: [
-            {id: 1, message: "Hi! I feel sweet!"},
-            {id: 2, message: "I like cups, and what about you?"},
-            {id: 3, message: "I'm in coffee!"},
-        ],
-        newPostText: '',
-        dialogsItems: [
-            {id: "1", name: "Veronika"},
-            {id: "2", name: "Oksana"},
-            {id: "3", name: "Liza"},
-        ],
-        messagesItems: [
-            {id: 1, message: "Hi!"},
-            {id: 2, message: "Where are you?"},
-            {id: 3, message: "I'm here, behind your back"},
-            {id: 4, message: "See you!"},
-        ]
+        profile: {
+            posts: [
+                {id: 1, message: "Hi! I feel sweet!"},
+                {id: 2, message: "I like cups, and what about you?"},
+                {id: 3, message: "I'm in coffee!"},
+            ],
+            newPostText: '',
+        },
+        messages: {
+            dialogsItems: [
+                {id: "1", name: "Veronika"},
+                {id: "2", name: "Oksana"},
+                {id: "3", name: "Liza"},
+            ],
+            messagesItems: [
+                {id: 1, message: "Hi!"},
+                {id: 2, message: "Where are you?"},
+                {id: 3, message: "I'm here, behind your back"},
+                {id: 4, message: "See you!"},
+            ],
+            newMessage: '',
+        }
     },
 
     getState() {
@@ -36,23 +41,24 @@ let store = {
     },
 
     addPost(text) {
-        let id = this._state.posts.length + 1;
-        this._state.posts.push({id: id, message: text});
+        let id = this._state.profile.posts.length + 1;
+        this._state.profile.posts.push({id: id, message: text});
         this._callSubscriber();
     },
 
     updatePostField(newText) {
-        this._state.newPostText = newText;
+        this._state.profile.newPostText = newText;
         this._callSubscriber();
     },
 
-    sendMassage() {
-
+    sendMassage(text) {
+        let id = this._state.messages.messagesItems.length + 1;
+        this._state.messages.messagesItems.push({id: id, message: text});
         this._callSubscriber();
     },
 
-    updateMessageField() {
-
+    updateMessageField(newMessage) {
+        this._state.messages.newMessage = newMessage;
         this._callSubscriber();
     },
 
@@ -67,10 +73,10 @@ let store = {
             this.updatePostField(action.text);
         }
         if (action.type === SEND_MESSAGE) {
-
+            this.sendMassage(action.text)
         }
         if (action.type === UPDATE_MESSAGE_FIELD) {
-
+            this.updateMessageField(action.text)
         }
     }
 }
@@ -88,9 +94,18 @@ export const updatePostFieldAction = (newText) => {
         text: newText
     }
 }
-export const updateMessageFieldAction = () => {
+
+export const sendMessageAction = (text) => {
     return {
-        type: UPDATE_MESSAGE_FIELD
+        type: SEND_MESSAGE,
+        text: text
+    }
+}
+
+export const updateMessageFieldAction = (newText) => {
+    return {
+        type: UPDATE_MESSAGE_FIELD,
+        text: newText
     }
 }
 
