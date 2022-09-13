@@ -29,7 +29,12 @@ const Messages = (props) => {
             <div className={classes.messages}>
                 { messagesElements }
                 <div className={classes.newMessages}>
-                    <textarea ref={newMessageText} value={props.newMessageText} onChange={onChange}></textarea>
+                    <textarea
+                        ref={newMessageText}
+                        value={props.newMessageText}
+                        onChange={onChange}
+                        placeholder={'Input a message...'}
+                    ></textarea>
                     <button onClick={sendMessage} >Send</button>
                 </div>
             </div>

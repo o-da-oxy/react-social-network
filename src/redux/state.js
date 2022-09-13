@@ -1,3 +1,6 @@
+import profileReducer from "./profileReducer";
+import messageReducer from "./messageReducer";
+
 const ADD_POST = 'ADD_POST';
 const UPDATE_POST_FIELD = 'UPDATE_POST_FIELD';
 const SEND_MESSAGE = 'SEND_MESSAGE';
@@ -40,44 +43,11 @@ let store = {
         this._callSubscriber = observer;
     },
 
-    addPost(text) {
-        let id = this._state.profile.posts.length + 1;
-        this._state.profile.posts.push({id: id, message: text});
-        this._callSubscriber();
-    },
-
-    updatePostField(newText) {
-        this._state.profile.newPostText = newText;
-        this._callSubscriber();
-    },
-
-    sendMassage(text) {
-        let id = this._state.messages.messagesItems.length + 1;
-        this._state.messages.messagesItems.push({id: id, message: text});
-        this._callSubscriber();
-    },
-
-    updateMessageField(newMessage) {
-        this._state.messages.newMessage = newMessage;
-        this._callSubscriber();
-    },
-
-
-
-    //dispatch - to dispatch an action - отправлять действие - инкапсуляция многих методов
+    //dispatch - to dispatch an action - отправлять действие
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            this.addPost(action.text);
-        }
-        if (action.type === UPDATE_POST_FIELD) {
-            this.updatePostField(action.text);
-        }
-        if (action.type === SEND_MESSAGE) {
-            this.sendMassage(action.text)
-        }
-        if (action.type === UPDATE_MESSAGE_FIELD) {
-            this.updateMessageField(action.text)
-        }
+        profileReducer(this._state.profile, action);
+        messageReducer(this._state.messages, action);
+        this._callSubscriber();
     }
 }
 

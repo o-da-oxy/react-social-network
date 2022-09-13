@@ -28,7 +28,12 @@ const MyPosts = (props) => {
                 <form>
                     <h4>New post</h4>
                 </form>
-                <textarea ref={newPostText} value={props.newPostText} onChange={onPostChange}></textarea>
+                <textarea
+                    ref={newPostText}
+                    value={props.newPostText}
+                    onChange={onPostChange}
+                    placeholder={'Input a post...'}
+                ></textarea>
                 <button onClick={addPost} >Add post</button>
             </div>
             <div className={classes.myPosts}>
