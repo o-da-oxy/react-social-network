@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Messages.module.css";
 import DialogItem from "./DialogItem/DialogItem.js";
 import MessageItem from "./MessageItem/MessageItem";
-import {sendMessageAction, updateMessageFieldAction} from "../../redux/state";
+import {sendMessageAction, updateMessageFieldAction} from "../../redux/store";
 
 const Messages = (props) => {
     let dialogsElements = props.dialogsItems.map((d) => <DialogItem key={d.id} name={d.name} />);

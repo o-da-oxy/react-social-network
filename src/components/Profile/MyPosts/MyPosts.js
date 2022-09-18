@@ -1,7 +1,7 @@
 import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import React from "react";
-import {addPostAction, updatePostFieldAction} from "../../../redux/state";
+import {addPostAction, updatePostFieldAction} from "../../../redux/store";
 
 const MyPosts = (props) => {
     let postsElements = props.posts.map((p) => <Post key={p.id} message={p.message}/>);
