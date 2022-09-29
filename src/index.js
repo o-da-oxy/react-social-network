@@ -3,20 +3,16 @@ import reportWebVitals from './reportWebVitals';
 import ReactDOM from "react-dom/client";
 import React from "react";
 import App from "./App";
-import store from "./redux/reduxStore";
+import reduxStore from "./redux/reduxStore";
 import {BrowserRouter} from "react-router-dom";
 
 export const root = ReactDOM.createRoot(document.getElementById('root'));
 export const renderPage = (root) => {
+    debugger
     root.render(
         <BrowserRouter>
             <App
-                dispatch={store.dispatch.bind(store)} //bind - привязка к контексту this
-                posts={store.getState().profile.posts}
-                newPostText={store.getState().profile.newPostText}
-                dialogsItems={store.getState().messages.dialogsItems}
-                messagesItems={store.getState().messages.messagesItems}
-                newMessageText={store.getState().messages.newMessage}
+                store={reduxStore}
             />
         </BrowserRouter>
     );
@@ -27,6 +23,6 @@ export const rerenderPage = () => {
     renderPage(root);
 }
 
-store.subscribe(rerenderPage);
+reduxStore.subscribe(rerenderPage);
 
 reportWebVitals();

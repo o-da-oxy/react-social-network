@@ -1,22 +1,18 @@
 import classes from "./MyPosts.module.css";
-import Post from "./Post/Post";
 import React from "react";
-import {addPostAction, updatePostFieldAction} from "../../../redux/store";
+import Post from "./Post/Post";
 
 const MyPosts = (props) => {
     let postsElements = props.posts.map((p) => <Post key={p.id} message={p.message}/>);
 
-    let newPostText = React.useRef();
+    let newPostTextRef = React.useRef();
 
-    let addPost = () => {
-        let text = newPostText.current.value;
-        props.dispatch(addPostAction(text));
-        props.dispatch(updatePostFieldAction(''));
+    let onPostChange = () => {
+        props.updatePostFieldText(newPostTextRef.current.value);
     }
 
-    function onPostChange() {
-        let text = newPostText.current.value;
-        props.dispatch(updatePostFieldAction(text));
+    let onAddPost = () => {
+        props.addPost(newPostTextRef.current.value);
     }
 
     return (
@@ -29,12 +25,12 @@ const MyPosts = (props) => {
                     <h4>New post</h4>
                 </form>
                 <textarea
-                    ref={newPostText}
+                    ref={ newPostTextRef }
                     value={props.newPostText}
                     onChange={onPostChange}
                     placeholder={'Input a post...'}
                 ></textarea>
-                <button onClick={addPost} >Add post</button>
+                <button onClick={onAddPost} >Add post</button>
             </div>
             <div className={classes.myPosts}>
                 { postsElements }
