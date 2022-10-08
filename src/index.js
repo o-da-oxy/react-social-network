@@ -5,15 +5,15 @@ import React from "react";
 import App from "./App";
 import reduxStore from "./redux/reduxStore";
 import {BrowserRouter} from "react-router-dom";
+import StoreContext from "./StoreContext";
 
 export const root = ReactDOM.createRoot(document.getElementById('root'));
 export const renderPage = (root) => {
-    debugger
     root.render(
         <BrowserRouter>
-            <App
-                store={reduxStore}
-            />
+            <StoreContext.Provider value={reduxStore}>
+                <App />
+            </StoreContext.Provider>
         </BrowserRouter>
     );
 }
