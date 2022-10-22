@@ -5,15 +5,15 @@ import React from "react";
 import App from "./App";
 import reduxStore from "./redux/reduxStore";
 import {BrowserRouter} from "react-router-dom";
-import StoreContext from "./StoreContext";
+import {Provider} from "react-redux";
 
 export const root = ReactDOM.createRoot(document.getElementById('root'));
 export const renderPage = (root) => {
     root.render(
         <BrowserRouter>
-            <StoreContext.Provider value={reduxStore}>
+            <Provider store={reduxStore}>
                 <App />
-            </StoreContext.Provider>
+            </Provider>
         </BrowserRouter>
     );
 }

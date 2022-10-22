@@ -12,7 +12,7 @@ let store = {
             posts: [
                 {id: 1, message: "Hi! I feel sweet!"},
                 {id: 2, message: "I like cups, and what about you?"},
-                {id: 3, message: "I'm in coffee!"},
+                {id: 3, message: "I'm in a coffee!"},
             ],
             newPostText: '',
         },
@@ -26,7 +26,7 @@ let store = {
                 {id: 1, message: "Hi!"},
                 {id: 2, message: "Where are you?"},
                 {id: 3, message: "I'm here, behind your back"},
-                {id: 4, message: "See you!"},
+                {id: 4, message: "I see you!"},
             ],
             newMessage: '',
         }

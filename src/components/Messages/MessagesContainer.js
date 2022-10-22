@@ -1,34 +1,28 @@
 import React from "react";
 import {sendMessageAction, updateMessageFieldAction} from "../../redux/store";
 import Messages from "./Messages";
-import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
-const MessagesContainer = (props) => {
-    return (
-        <StoreContext.Consumer>
-            {
-                (reduxStore) => {
-                    let sendMessage = (text) => {
-                        reduxStore.dispatch(sendMessageAction(text));
-                        reduxStore.dispatch(updateMessageFieldAction(''));
-                    }
+let mapDispatchToProps = (dispatch) => {
+    return {
+        sendMessage: (text) => {
+            dispatch(sendMessageAction(text));
+            dispatch(updateMessageFieldAction(''));
+        },
+        updateMessageFieldText: (text) => {
+            dispatch(updateMessageFieldAction(text));
+        }
+    }
+}
 
-                    let updateMessageFieldText = (text) => {
-                        reduxStore.dispatch(updateMessageFieldAction(text));
-                    }
-                    return (
-                        <Messages
-                            updateMessageFieldText={updateMessageFieldText}
-                            sendMessage={sendMessage}
-                            currentMessageText={reduxStore.getState().messages.newMessage}
-                            dialogsItems={reduxStore.getState().messages.dialogsItems}
-                            messagesItems={reduxStore.getState().messages.messagesItems}
-                        />
-                    )
-                }
-            }
-        </StoreContext.Consumer>
-    )
-};
+let mapStateToProps = (state) => {
+    return {
+        currentMessageText: state.messages.newMessage,
+        dialogsItems: state.messages.dialogsItems,
+        messagesItems: state.messages.messagesItems
+    }
+}
+
+const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages);
 
 export default MessagesContainer;

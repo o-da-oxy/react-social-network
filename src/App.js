@@ -8,7 +8,7 @@ import Settings from "./components/Settings/Settings";
 import {Route, Routes} from "react-router-dom";
 import MessagesContainer from "./components/Messages/MessagesContainer";
 
-function App(props) {
+function App() {
     return (
         <div className="app-wrapper">
             <Header/>
