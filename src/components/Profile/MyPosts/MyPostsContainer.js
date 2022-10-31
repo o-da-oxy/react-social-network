@@ -1,4 +1,3 @@
-import React from "react";
 import {addPostAction, updatePostFieldAction} from "../../../redux/store";
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
@@ -22,6 +21,8 @@ let mapStateToProps = (state) => {
     }
 }
 
+//после mapStateToProps отрисовка, если произошли изменения (не сработает, если изменять state напрямую)
+//connect - подписка на обновления переданных аргиментов
 const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
 export default MyPostsContainer;
