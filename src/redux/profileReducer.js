@@ -10,21 +10,18 @@ let initialState = {
     newPostText: '',
 }
 
-//чистая функция!!!
 const profileReducer = (state = initialState, action) => {
     if (action.type === ADD_POST) {
-        let id = state.posts.length + 1;
-        //менять состояние КОПИИ!!! достать поверхностную, потом глубокую
-        //иммутабельность
-        let stateCopy = {...state};
-        stateCopy.posts = [...state.posts];
-        stateCopy.posts.push({id: id, message: action.text});
-        return stateCopy;
+        return {
+            ...state,
+            posts: [...state.posts, {id: state.posts.length + 1, message: action.text}]
+        };
     }
     if (action.type === UPDATE_POST_FIELD) {
-        let stateCopy = {...state};
-        stateCopy.newPostText = action.text;
-        return stateCopy;
+        return {
+            ...state,
+            newPostText: action.text
+        };
     }
     return state;
 }

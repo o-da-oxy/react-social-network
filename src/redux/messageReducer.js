@@ -18,16 +18,17 @@ let initialState = {
 
 const messageReducer = (state = initialState, action) => {
     if (action.type === SEND_MESSAGE) {
-        let id = state.messagesItems.length + 1;
-        let stateCopy = {...state};
-        stateCopy.messagesItems = [...state.messagesItems];
-        stateCopy.messagesItems.push({id: id, message: action.text});
-        return stateCopy;
+        return {
+            ...state,
+            messagesItems:
+                [...state.messagesItems, {id: state.messagesItems.length + 1, message: action.text}]
+        };
     }
     if (action.type === UPDATE_MESSAGE_FIELD) {
-        let stateCopy = {...state};
-        stateCopy.newMessage = action.text;
-        return stateCopy;
+        return {
+            ...state,
+            newMessage: action.text
+        };
     }
     return state;
 }
